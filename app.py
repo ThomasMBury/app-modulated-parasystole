@@ -22,7 +22,6 @@ from dash.dependencies import Input, Output
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 
-
 from construct_figures import mp_grid_plot, prc_plot
 import mod_para_funs as mp
 
