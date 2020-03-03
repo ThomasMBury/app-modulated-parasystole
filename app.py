@@ -26,7 +26,7 @@ import plotly.graph_objects as go
 from construct_figures import mp_grid_plot, prc_plot
 import mod_para_funs as mp
 
-
+import os
 
 
 
@@ -37,7 +37,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 print('Launching dash')
 
-
+server = app.server
 
 #----------------
 # Simulate parasystole at default parameter values
