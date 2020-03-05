@@ -30,9 +30,9 @@ import construct_figures as cf
 tmax = 1000
 tburn = 100
 ts = 1
-te = 2.2
-theta = 0.14
-prc_tag = 'pure'
+te = 2.35
+theta = 0.4
+prc_tag = 'c'
 tmax_plot = 200
 
 df_beats = mp.run_mod_para(ts=ts, te=te, theta=theta, prc_tag=prc_tag,

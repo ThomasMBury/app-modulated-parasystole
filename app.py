@@ -100,16 +100,16 @@ size_title = '20px'
 # Parameter bounds
 theta_min = 0.1
 theta_max = 0.6
-theta_marks = {x:str(round(x,2)) for x in np.arange(theta_min,theta_max,0.2)}
+theta_marks = {x:str(round(x,2)) for x in np.arange(theta_min,theta_max+0.01,0.2)}
 
 te_min = 1
-te_max = 3
-te_marks = {x:str(round(x,2)) for x in np.arange(te_min,te_max,0.2)}
+te_max = 4
+te_marks = {x:str(round(x,2)) for x in np.arange(te_min,te_max+0.01,0.5)}
 
 
 ts_min = 0.4
 ts_max = 1.2
-ts_marks = {x:str(round(x,2)) for x in np.arange(ts_min,ts_max,0.2)}
+ts_marks = {x:str(round(x,2)) for x in np.arange(ts_min,ts_max+0.01,0.2)}
 
 
 # Description md file
@@ -224,7 +224,8 @@ app.layout = html.Div([
     html.Div(
         [dcc.Markdown(description_text)],
         style={'padding-left':'10px',
-               'padding-right':'10px'}
+               'padding-right':'10px',
+               'padding-bottom':'40px'}
     )
 
 ])
