@@ -222,7 +222,9 @@ app.layout = html.Div([
     
     # Additional text (interesting parameter settings and implications for mp)
     html.Div(
-        [dcc.Markdown(description_text)]
+        [dcc.Markdown(description_text)],
+        style={'padding-left':'10px',
+               'padding-right':'10px'}
     )
 
 ])

@@ -140,7 +140,6 @@ def mp_grid_plot(df_beats, df_rr, df_nib, tmax_plot):
     fig.add_trace(go.Histogram(x = v_intervals_round,
                                histnorm='probability',
                                marker_color='Purple',
-                               name='VV',
                                xbins={'start':0,'end':50,'size':0.2},
                                showlegend=False), row=2, col=3)
     
@@ -150,7 +149,7 @@ def mp_grid_plot(df_beats, df_rr, df_nib, tmax_plot):
     
     # RR Interval axes
     fig.update_xaxes(title="Time (s)", row=1, col=1)
-    ymax = np.ceil(max(df_rr['RR interval (s)']))
+    ymax = np.ceil(max(df_rr['RR interval (s)'])+0.01)
     fig.update_yaxes(title="Interval (s)",
                      range=[0,ymax],
                      fixedrange=True,
@@ -171,7 +170,7 @@ def mp_grid_plot(df_beats, df_rr, df_nib, tmax_plot):
     
     
     # VV distributions
-    fig.update_xaxes(title="VV interval (s)",
+    fig.update_xaxes(title="Inter-ectopic interval (s)",
                      range=[0,20],
                      row=2,col=3)
     fig.update_yaxes(range=[-0.05,1.05], row=2,col=3)

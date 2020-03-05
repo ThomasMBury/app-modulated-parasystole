@@ -51,6 +51,9 @@ def run_mod_para(ts=1, te=1.8, theta=0.2, tmax=1000, tburn=100, prc_tag='pure'):
     # Assign PRC curve
     prc = dic_prc[prc_tag]
     
+    # Set base modulated time to be equal to te
+    te_mod = te
+    
     # Simulate beats
     # Assume an expressed sinus beat at t=0
     # and an ectopic beat at t= theta+(ts-theta)/2 (ensures it is expressed)
@@ -63,15 +66,18 @@ def run_mod_para(ts=1, te=1.8, theta=0.2, tmax=1000, tburn=100, prc_tag='pure'):
     # Iterate system until sinus time t_sinus<tmax+tburn
     while t_sinus < tmax+tburn:
         
+
         # Obtain time of subsequent sinus beat
         t_sinus_next = t_sinus + ts
-        # Obtain time of subsequent ectopic beat (using PRC if last beat was expressed sinus)
+        # Obtain projected time of subsequent ectopic beat (using PRC if last beat was expressed sinus)
         if list_beats[-1][1] != 's':
             t_ectopic_next = t_ectopic + te
         else:
-            # Compute phase of sinus beat in ectopic cycle
+            # Compute phase of sinus beat in current ectopic cycle
             phi = (t_sinus - t_ectopic)/te
-            t_ectopic_next = t_ectopic + prc(phi)*te
+            # Compute modulated ectopic period
+            te_mod = prc(phi)*te_mod
+            t_ectopic_next = t_ectopic + te_mod
         
             
         # If the next beat is a sinus beat
@@ -96,6 +102,8 @@ def run_mod_para(ts=1, te=1.8, theta=0.2, tmax=1000, tburn=100, prc_tag='pure'):
             else: beat_type = 'e'
             # Update t_ectopic
             t_ectopic = t_ectopic_next
+            # Reset te_mod
+            te_mod = te
             # Append beat list
             list_beats.append((t_ectopic,beat_type))
             
