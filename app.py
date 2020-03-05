@@ -49,7 +49,7 @@ tburn = 100
 
 # Default physiological values
 ts = 1
-te = 2.2
+te = 2.21
 theta = 0.4
 prc_tag = 'pure'
 
@@ -112,6 +112,9 @@ ts_max = 1.2
 ts_marks = {x:str(round(x,2)) for x in np.arange(ts_min,ts_max,0.2)}
 
 
+# Description md file
+f = open('description.md', 'r') 
+description_text = f.read()
 
 app.layout = html.Div([
         
@@ -211,13 +214,19 @@ app.layout = html.Div([
             
     # Grid plot     
     html.Div(
-        [dcc.Graph(id='grid_plot',figure = fig_grid)]
+        [dcc.Graph(id='grid_plot',figure = fig_grid)],
+        style={'padding-bottom':'20px'}
+
+    ),
+
+    
+    # Additional text (interesting parameter settings and implications for mp)
+    html.Div(
+        [dcc.Markdown(description_text)]
     )
 
-  
 ])
-
-
+        
 
 #–-------------------
 # Callback functions

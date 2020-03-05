@@ -141,17 +141,18 @@ def mp_grid_plot(df_beats, df_rr, df_nib, tmax_plot):
                                histnorm='probability',
                                marker_color='Purple',
                                name='VV',
-                               xbins={'start':0,'end':50,'size':0.1},
+                               xbins={'start':0,'end':50,'size':0.2},
                                showlegend=False), row=2, col=3)
     
     
     
     ## Set axes properties
     
-    # Inteval axes
+    # RR Interval axes
     fig.update_xaxes(title="Time (s)", row=1, col=1)
+    ymax = np.ceil(max(df_rr['RR interval (s)']))
     fig.update_yaxes(title="Interval (s)",
-                     range=[0,2.5],
+                     range=[0,ymax],
                      fixedrange=True,
                      row=1,col=1)
     
@@ -171,7 +172,7 @@ def mp_grid_plot(df_beats, df_rr, df_nib, tmax_plot):
     
     # VV distributions
     fig.update_xaxes(title="VV interval (s)",
-    #                 range=[0,10],
+                     range=[0,20],
                      row=2,col=3)
     fig.update_yaxes(range=[-0.05,1.05], row=2,col=3)
 
