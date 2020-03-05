@@ -29,6 +29,7 @@ import os
 
 
 
+
 #-------------
 # Launch the dash app
 #---------------
@@ -264,10 +265,11 @@ def update_fig_prc(prc):
 # Update grid plot            
 @app.callback(Output('grid_plot','figure'),
               [Input('prc_drop_down','value'),
-               Input('theta_slider','value'),
-               Input('te_slider','value')])
-
-def update_grid(prc, theta, te):
+               Input('ts_slider','value'),
+               Input('te_slider','value'),
+               Input('theta_slider','value')])
+    
+def update_grid(prc, ts, te, theta):
     # Run simulation with new parameter values
     df_beats = mp.run_mod_para(ts=ts, te=te, theta=theta, prc_tag=prc,
                tmax=tmax, tburn=tburn)
@@ -293,8 +295,7 @@ if __name__ == '__main__':
     app.run_server(debug=True)
     
     
-    
-    
+
     
     
     

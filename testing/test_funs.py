@@ -14,6 +14,10 @@ Testing functions
 import numpy as np
 import pandas as pd
 
+import sys
+sys.path.insert(1, '../')
+
+
 # Import functions
 
 import mod_para_funs as mp
