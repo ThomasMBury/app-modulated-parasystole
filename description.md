@@ -43,8 +43,9 @@ ectopic period and sinus beats, and their explicit forms can be found in ([Court
 
 The graphs allow for zooming and scrolling with the mouse.
 
-###### Notable configurations of (PRC, ts, te, theta):
-* **('pure', 1, 2.3, 0.4)**: Pure parasystole triplet of NIB values (1,4,6) as expected theoretically ([Glass et al. (1989)](https://www.ncbi.nlm.nih.gov/pubmed/3766761)). Note the inter-ectopic intervals are multiples of a fixed number, te, as expected for pure parasystole.
+###### Notable configurations:
+Parameter values are listed as a tuple of the form (PRC, ts, te, theta).
+* **('PURE', 1, 2.3, 0.4)**: Pure parasystole triplet of NIB values (1,4,6) as expected theoretically ([Glass et al. (1989)](https://www.ncbi.nlm.nih.gov/pubmed/3766761)). Note the inter-ectopic intervals are multiples of a fixed number, te, as expected for pure parasystole.
 * **('A', 1, 2.3, 0.4)**: Modulated parasystole with weak coupling preserves the triplet in many cases.
 * **('D', 1, 2.3, 0.4)**: Strong coupling that results in stable trigeminy.
 * **('E', 1, 2.3, 0.4)**: Strong coupling can result in silence of the ectopic beat - the PRC yields a map whereby the ectopic beat only ever lands in the refractory period of the sinus beat.

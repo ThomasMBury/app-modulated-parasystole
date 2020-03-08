@@ -89,12 +89,10 @@ fig_prc = prc_plot(prc=prc_tag)
 # App layout
 #–-------------------
 
-# Title information
-title_text="<b>Modulated parasystole simulation</b><br>"
 
 # Font sizes
 size_slider_text = '15px'
-size_title = '20px'
+size_title = '30px'
 
 
 # Parameter bounds
@@ -103,7 +101,7 @@ theta_max = 0.6
 theta_marks = {x:str(round(x,2)) for x in np.arange(theta_min,theta_max+0.01,0.2)}
 
 te_min = 1
-te_max = 4
+te_max = 3
 te_marks = {x:str(round(x,2)) for x in np.arange(te_min,te_max+0.01,0.5)}
 
 
