@@ -17,6 +17,7 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
+import dash_auth
 
 
 from plotly.subplots import make_subplots
@@ -33,8 +34,22 @@ import os
 #-------------
 # Launch the dash app
 #---------------
+
+
+VALID_USERNAME_PASSWORD_PAIRS = {
+    'guest': 'heart123'
+}
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+# Enable password protection
+# auth = dash_auth.BasicAuth(
+#     app,
+#     VALID_USERNAME_PASSWORD_PAIRS
+# )
+
+
 print('Launching dash')
 
 server = app.server
@@ -122,6 +137,8 @@ app.layout = html.Div([
                'fontSize':size_title,
                'color':'black'}
     ),
+    
+    
     
     # Dropdown menu and sliders
     html.Div(
