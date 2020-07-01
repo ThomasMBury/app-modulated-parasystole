@@ -17,7 +17,12 @@ from plotly.subplots import make_subplots
 
 import prc_functions as pf
 dic_prc = {'a':pf.prc_a,'b':pf.prc_b,'c':pf.prc_c,'d':pf.prc_d,
-           'e':pf.prc_e,'pure':pf.prc_pure}
+           'e':pf.prc_e,'pure':pf.prc_pure,
+           # 'moe_1':pf.prc_moe_1,
+           # 'moe_2':pf.prc_moe_2,
+           # 'moe_3':pf.prc_moe_3,
+           # 'sawtooth':pf.prc_sawtooth,
+           }
 
 
 def mp_grid_plot(df_beats, df_rr, df_nib, tmax_plot):
@@ -184,9 +189,6 @@ def mp_grid_plot(df_beats, df_rr, df_nib, tmax_plot):
 
 
 
-
-
-
 def prc_plot(prc):
     '''
     Plots all PRC functions lightly, and boldens prc.
@@ -210,6 +212,11 @@ def prc_plot(prc):
     prc_c_vals = [pf.prc_c(phi) for phi in phi_vals]
     prc_d_vals = [pf.prc_d(phi) for phi in phi_vals]
     prc_e_vals = [pf.prc_e(phi) for phi in phi_vals]    
+    # prc_moe_1_vals = [pf.prc_moe_1(phi) for phi in phi_vals]
+    # prc_moe_2_vals = [pf.prc_moe_2(phi) for phi in phi_vals]
+    # prc_moe_3_vals = [pf.prc_moe_3(phi) for phi in phi_vals]
+    # prc_sawtooth_vals = [pf.prc_sawtooth(phi) for phi in phi_vals]
+    
     
     # Include nan in prc_e_vals to emphasise discontinuity
     pos = np.where(phi_vals >= 0.6)[0][0]
@@ -265,7 +272,35 @@ def prc_plot(prc):
                     name='E',
                     opacity=dic_opacities['e'],
                     line={'width':dic_thickness['e']}))
-
+    
+    # # prc moe 1
+    # fig.add_trace(go.Scatter(x=phi_vals, y=prc_moe_1_vals,
+    #                 mode='lines',
+    #                 name='moe_1',
+    #                 opacity=dic_opacities['moe_1'],
+    #                 line={'width':dic_thickness['moe_1']}))    
+    
+    # # prc moe 2
+    # fig.add_trace(go.Scatter(x=phi_vals, y=prc_moe_2_vals,
+    #                 mode='lines',
+    #                 name='moe_2',
+    #                 opacity=dic_opacities['moe_2'],
+    #                 line={'width':dic_thickness['moe_2']}))    
+    
+    # # prc moe 3
+    # fig.add_trace(go.Scatter(x=phi_vals, y=prc_moe_3_vals,
+    #                 mode='lines',
+    #                 name='moe_3',
+    #                 opacity=dic_opacities['moe_3'],
+    #                 line={'width':dic_thickness['moe_3']}))    
+    
+    # # prc sawtooth
+    # fig.add_trace(go.Scatter(x=phi_vals, y=prc_sawtooth_vals,
+    #                 mode='lines',
+    #                 name='sawtooth',
+    #                 opacity=dic_opacities['sawtooth'],
+    #                 line={'width':dic_thickness['sawtooth']}))    
+    
     # Layout of figure
     fig.update_layout(
             title={

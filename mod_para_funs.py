@@ -17,10 +17,15 @@ import numpy as np
 import pandas as pd
 
 # Import phase response curve functions
-from prc_functions import prc_a, prc_b, prc_c, prc_d, prc_e, prc_pure
+import prc_functions as pf
 
-dic_prc = {'a':prc_a,'b':prc_b,'c':prc_c,'d':prc_d,
-           'e':prc_e,'pure':prc_pure}
+dic_prc = {'a':pf.prc_a,'b':pf.prc_b,'c':pf.prc_c,'d':pf.prc_d,
+           'e':pf.prc_e,'pure':pf.prc_pure,
+           'moe_1':pf.prc_moe_1,
+           'moe_2':pf.prc_moe_2,
+           'moe_3':pf.prc_moe_3,
+           'sawtooth':pf.prc_sawtooth,
+           }
 
 
 

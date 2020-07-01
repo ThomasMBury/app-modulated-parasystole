@@ -81,7 +81,9 @@ df_rr = mp.compute_rr(df_beats)
 
 
 # Dropdown options (choosing PRC function)
-prcTags = ['pure','a','b','c','d','e'] # Phase response function (see prc_functions.py)
+prcTags = ['pure','a','b','c','d','e',
+           # 'moe_1','moe_2','moe_3','sawtooth',
+           ] # Phase response function (see prc_functions.py)
 prc_opts = [{'label':x.upper(), 'value':x} for x in prcTags]
 
 
@@ -116,7 +118,7 @@ theta_max = 0.6
 theta_marks = {x:str(round(x,2)) for x in np.arange(theta_min,theta_max+0.01,0.2)}
 
 te_min = 1
-te_max = 3
+te_max = 4
 te_marks = {x:str(round(x,2)) for x in np.arange(te_min,te_max+0.01,0.5)}
 
 
@@ -169,7 +171,9 @@ app.layout = html.Div([
                    value=ts
         ),        
       
-                   
+        html.Br(),   
+        html.Br(),      
+         
         # Slider for te
         html.Label('te = {}'.format(te),
                    id='te_slider_text',
@@ -183,7 +187,10 @@ app.layout = html.Div([
                    value=te
         ),
                    
-                   
+             
+        html.Br(),       
+        html.Br(),      
+        
         # Slider for theta 
         html.Label('theta = {}'.format(theta),
                    id='theta_slider_text',
@@ -241,7 +248,28 @@ app.layout = html.Div([
         style={'padding-left':'10px',
                'padding-right':'10px',
                'padding-bottom':'40px'}
-    )
+    ),
+    
+    
+    # Footer
+    html.Footer(
+        [
+            'Created and maintained by ',
+        html.A('Thomas Bury',
+               href='http://thomas-bury.research.mcgill.ca/', 
+               target="_blank",
+               ),
+        ],
+        style={'fontSize':'15px',
+                          'width':'100%',
+                           # 'horizontal-align':'middle',
+                          'textAlign':'center',
+               },
+                
+        ),
+            
+    
+    
 
 ])
         
